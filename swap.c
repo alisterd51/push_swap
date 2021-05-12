@@ -6,11 +6,12 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:08:43 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/12 13:50:00 by user42           ###   ########.fr       */
+/*   Updated: 2021/05/12 17:37:04 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <unistd.h>
 #include "struct.h"
 
 static void	s(t_pile **pile_ptr)
@@ -31,16 +32,19 @@ static void	s(t_pile **pile_ptr)
 
 void	sa(t_pile **a)
 {
+	write(1, "sa\n", 3);
 	s(a);
 }
 
 void	sb(t_pile **b)
 {
+	write(1, "sb\n", 3);
 	s(b);
 }
 
 void	ss(t_pile **a, t_pile **b)
 {
+	write(1, "ss\n", 3);
 	s(a);
 	s(b);
 }
