@@ -3,24 +3,29 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/04/27 09:52:34 by anclarma          #+#    #+#              #
-#    Updated: 2021/05/09 12:18:06 by anclarma         ###   ########.fr        #
+#    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
+#    Updated: 2021/05/12 17:25:05 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME1		= push_swap
 NAME2		= checker
-SRCS1		= 
+SRCS1		= swap.c	\
+			  push.c	\
+			  rotate.c	\
+			  rrotate.c	\
+			  pile.c	\
+			  push_swap.c
 SRCS2		= 
 OBJS1		= $(SRCS1:.c=.o)
 OBJS2		= $(SRCS2:.c=.o)
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g3
 
 .c.o:
-			$(CC) $(CFLAGS) $< -o $(<:.c=.o)
+			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all:		$(NAME1)
 
