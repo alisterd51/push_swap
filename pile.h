@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:38:01 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/12 17:13:45 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/12 21:03:11 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 */
 int		pile_push_back(t_pile **pile_ptr, int value);
 void	pile_clear(t_pile **pile_ptr);
-void	pile_write(t_pile *pile_ptr);
+void	pile_write(t_pile *a, t_pile *b);
 
 #endif

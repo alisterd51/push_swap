@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 15:34:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/12 17:38:05 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/12 21:22:38 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@
 
 static void	r(t_pile **pile_ptr)
 {
-	t_pile	*ptr;
+	t_pile	*ptr1;
+	t_pile	*ptr2;
 
-	if (!*pile_ptr || (*pile_ptr)->next)
+	if (!*pile_ptr || !(*pile_ptr)->next)
 		return ;
-	ptr = *pile_ptr;
-	while (ptr->next)
-		ptr = ptr->next;
-	ptr->next = *pile_ptr;
-	*pile_ptr = (*pile_ptr)->next;
-	ptr->next->next = NULL;
+	ptr1 = *pile_ptr;
+	*pile_ptr = ptr1->next;
+	ptr1->next = NULL;
+	ptr2 = *pile_ptr;
+	while (ptr2->next)
+		ptr2 = ptr2->next;
+	ptr2->next = ptr1;
 }
 
 void	ra(t_pile **a)

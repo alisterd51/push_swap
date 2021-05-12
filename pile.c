@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:47:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/12 18:13:58 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/12 20:58:55 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,24 @@ void	pile_clear(t_pile **pile_ptr)
 	*pile_ptr = NULL;
 }
 
-void	pile_write(t_pile *pile_ptr)
+void	pile_write(t_pile *a, t_pile *b)
 {
-	while (pile_ptr)
+	while (a || b)
 	{
-		printf("%d\n", pile_ptr->value);
-		pile_ptr = pile_ptr->next;
+		if (a)
+		{
+			printf("%d ", a->value);
+			a = a->next;
+		}
+		else
+			printf("  ");
+		if (b)
+		{
+			printf("%d\n", b->value);
+			b = b->next;
+		}
+		else
+			printf(" \n");
 	}
 	printf("\n");
 }
