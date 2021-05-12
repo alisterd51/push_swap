@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:47:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/12 17:26:27 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/12 18:13:58 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,5 @@ void	pile_write(t_pile *pile_ptr)
 		printf("%d\n", pile_ptr->value);
 		pile_ptr = pile_ptr->next;
 	}
+	printf("\n");
 }
