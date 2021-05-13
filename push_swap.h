@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 17:07:40 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/13 15:41:13 by anclarma         ###   ########.fr       */
+/*   Created: 2021/05/13 15:34:00 by anclarma          #+#    #+#             */
+/*   Updated: 2021/05/13 15:58:28 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include "struct.h"
-#include "push_swap.h"
-#include "pile.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	main(int ac, char **av)
-{
-	t_pile	*a;
-	t_pile	*b;
+# include "struct.h"
 
-	a = NULL;
-	b = NULL;
-	if (ac == 1)
-		return (1);
-	if (parse(&a, ac - 1, av + 1))
-	{
-		write(2, "Error\n", 6);
-		pile_clear(&a);
-		return (2);
-	}
-	solve(&a, &b);
-	pile_clear(&a);
-	pile_clear(&b);
-	return (0);
-}
+/*
+** parse.c
+*/
+int		parse(t_pile **a, int ac, char **av);
+
+/*
+** solve.c
+*/
+void	solve(t_pile **a, t_pile **b);
+
+#endif

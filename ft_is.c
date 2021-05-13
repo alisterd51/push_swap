@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_is.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 17:07:40 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/13 15:41:13 by anclarma         ###   ########.fr       */
+/*   Created: 2021/05/13 16:03:56 by anclarma          #+#    #+#             */
+/*   Updated: 2021/05/13 16:05:24 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include "struct.h"
-#include "push_swap.h"
-#include "pile.h"
-
-int	main(int ac, char **av)
+int	ft_isspace(int c)
 {
-	t_pile	*a;
-	t_pile	*b;
+	return (c == ' ' || c == '\f' || c == '\n'
+		|| c == '\r' || c == '\t' || c == '\v');
+}
 
-	a = NULL;
-	b = NULL;
-	if (ac == 1)
-		return (1);
-	if (parse(&a, ac - 1, av + 1))
-	{
-		write(2, "Error\n", 6);
-		pile_clear(&a);
-		return (2);
-	}
-	solve(&a, &b);
-	pile_clear(&a);
-	pile_clear(&b);
-	return (0);
+int	ft_isdigit(int c)
+{
+	return ('0' <= c && c <= '9');
 }

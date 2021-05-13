@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 17:07:40 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/13 15:41:13 by anclarma         ###   ########.fr       */
+/*   Created: 2021/05/13 15:43:04 by anclarma          #+#    #+#             */
+/*   Updated: 2021/05/13 17:47:16 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include "struct.h"
-#include "push_swap.h"
-#include "pile.h"
+#ifndef FT_H
+# define FT_H
 
-int	main(int ac, char **av)
-{
-	t_pile	*a;
-	t_pile	*b;
+/*
+** ft_is.c
+*/
+int	ft_isspace(int c);
+int	ft_isdigit(int c);
 
-	a = NULL;
-	b = NULL;
-	if (ac == 1)
-		return (1);
-	if (parse(&a, ac - 1, av + 1))
-	{
-		write(2, "Error\n", 6);
-		pile_clear(&a);
-		return (2);
-	}
-	solve(&a, &b);
-	pile_clear(&a);
-	pile_clear(&b);
-	return (0);
-}
+/*
+** ft_secure_atoi.c
+*/
+int	ft_secure_atoi(const char *str);
+
+/*
+** ft_atoi.c
+*/
+int	ft_atoi(const char *str);
+
+#endif

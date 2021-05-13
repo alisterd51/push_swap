@@ -6,18 +6,23 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/05/12 17:25:05 by anclarma         ###   ########.fr        #
+#    Updated: 2021/05/13 17:46:08 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME1		= push_swap
 NAME2		= checker
-SRCS1		= swap.c	\
-			  push.c	\
-			  rotate.c	\
-			  rrotate.c	\
-			  pile.c	\
-			  push_swap.c
+SRCS1		= swap.c			\
+			  push.c			\
+			  rotate.c			\
+			  rrotate.c			\
+			  pile.c			\
+			  push_swap.c		\
+			  parse.c			\
+			  solve.c			\
+			  ft_is.c			\
+			  ft_atoi.c			\
+			  ft_secure_atoi.c
 SRCS2		= 
 OBJS1		= $(SRCS1:.c=.o)
 OBJS2		= $(SRCS2:.c=.o)
