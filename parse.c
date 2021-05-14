@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 14:39:13 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/13 18:09:37 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/14 11:38:43 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,6 @@ static int	parse_line(t_pile **a, char *str)
 	return (0);
 }
 
-static int	parse_value(t_pile **a, char *str)
-{
-	if (ft_secure_atoi(str))
-		return (1);
-	return (pile_push_back(a, ft_atoi(str)));
-}
-
 int	parse(t_pile **a, int ac, char **av)
 {
 	int	i;
@@ -49,7 +42,7 @@ int	parse(t_pile **a, int ac, char **av)
 		return (parse_line(a, *av));
 	i = 0;
 	while (i < ac)
-		if (parse_value(a, av[i++]))
+		if (parse_line(a, av[i++]))
 			return (1);
 	return (0);
 }
