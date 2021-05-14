@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:56:38 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/14 16:29:18 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/14 22:17:29 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "pile.h"
 #include "op.h"
 
-int	thirst_is_sorted(t_pile *pile)
+static int	thirst_is_sorted(t_pile *pile)
 {
 	if (!pile || !pile->next)
 		return (1);
@@ -32,7 +32,7 @@ int	pile_is_sorted(t_pile *pile)
 	return (1);
 }
 
-void	p_low(t_pile **a, t_pile **b)
+static void	p_low(t_pile **a, t_pile **b)
 {
 	int		low_value;
 	int		i_low_value;
