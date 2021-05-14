@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 20:47:07 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/14 23:52:59 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/15 00:08:22 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "ft.h"
 #include "op.h"
 
-void	op_2(char *line, t_pile **a, t_pile **b)
+static void	op_2(char *line, t_pile **a, t_pile **b)
 {
 	if (line[0] == 's' && line[1] == 'a')
 		sa(a);
@@ -38,7 +38,7 @@ void	op_2(char *line, t_pile **a, t_pile **b)
 		rr(a, b);
 }
 
-void	op_3(char *line, t_pile **a, t_pile **b)
+static void	op_3(char *line, t_pile **a, t_pile **b)
 {
 	if (line[0] == 'r' && line[1] == 'r' && line[2] == 'a')
 		rra(a);
@@ -48,7 +48,7 @@ void	op_3(char *line, t_pile **a, t_pile **b)
 		rrr(a, b);
 }
 
-void	apply_op(char *line, t_pile **a, t_pile **b)
+static void	apply_op(char *line, t_pile **a, t_pile **b)
 {
 	int	len;
 
@@ -61,7 +61,7 @@ void	apply_op(char *line, t_pile **a, t_pile **b)
 		return ;
 }
 
-void	apply_input(t_pile **a, t_pile **b)
+static void	apply_input(t_pile **a, t_pile **b)
 {
 	char	*line;
 
