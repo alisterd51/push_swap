@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:47:05 by user42            #+#    #+#             */
-/*   Updated: 2021/05/15 14:34:30 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/15 17:49:45 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 /*
 ** pile.c
 */
+int		pile_len(t_pile *pile);
 int		pile_push_back(t_pile **pile_ptr, int value);
 void	pile_clear(t_pile **pile_ptr);
 void	pile_write(t_pile *a, t_pile *b);

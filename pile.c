@@ -6,13 +6,27 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:47:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/12 20:58:55 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/15 17:49:07 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include "struct.h"
+
+
+int	pile_len(t_pile *pile)
+{
+	int	ret;
+
+	ret = 0;
+	while (pile)
+	{
+		ret++;
+		pile = pile->next;
+	}
+	return (ret);
+}
 
 int	pile_push_back(t_pile **pile_ptr, int value)
 {

@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/05/15 16:23:38 by anclarma         ###   ########.fr        #
+#    Updated: 2021/05/15 17:29:24 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,14 +25,15 @@ SRCS1		= swap.c			\
 			  ft_secure_atoi.c	\
 			  ft_strcpy.c		\
 			  ft_strlen.c		\
-			  op.c
+			  op.c				\
+			  is_sorted.c		\
+			  stupid_sort.c
 SRCS2		= checker.c			\
 			  swap.c			\
 			  push.c			\
 			  rotate.c			\
 			  rrotate.c			\
 			  parse.c			\
-			  solve.c			\
 			  pile.c			\
 			  ft_is.c			\
 			  ft_atoi.c			\
@@ -42,6 +43,7 @@ SRCS2		= checker.c			\
 			  ft_strjoin.c		\
 			  ft_strcpy.c		\
 			  ft_strlen.c		\
+			  is_sorted.c		\
 			  op.c
 OBJS1		= $(SRCS1:.c=.o)
 OBJS2		= $(SRCS2:.c=.o)

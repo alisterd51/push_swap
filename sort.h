@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sort.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 15:34:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/15 17:25:20 by anclarma         ###   ########.fr       */
+/*   Created: 2021/05/12 13:13:34 by user42            #+#    #+#             */
+/*   Updated: 2021/05/15 17:16:13 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef SORT_H
+# define SORT_H
 
-# include "struct.h"
+#include "struct.h"
 
-/*
-** parse.c
-*/
-int		parse(t_pile **a, int ac, char **av);
-
-/*
-** solve.c
-*/
-void	solve(t_pile **a, t_pile **b);
-
-/*
-** is_sorted.c
-*/
-int		pile_is_sorted(t_pile *pile);
+void	stupid_sort(t_op **list_op, t_pile **a, t_pile **b);
 
 #endif
