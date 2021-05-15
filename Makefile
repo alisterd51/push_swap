@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/05/15 17:29:24 by anclarma         ###   ########.fr        #
+#    Updated: 2021/05/15 21:24:09 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ SRCS2		= checker.c			\
 			  op.c
 OBJS1		= $(SRCS1:.c=.o)
 OBJS2		= $(SRCS2:.c=.o)
-CC			= gcc
+CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g3
 
 .c.o:
