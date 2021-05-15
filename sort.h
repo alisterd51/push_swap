@@ -6,14 +6,14 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:13:34 by user42            #+#    #+#             */
-/*   Updated: 2021/05/15 17:16:13 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/15 18:03:29 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SORT_H
 # define SORT_H
 
-#include "struct.h"
+# include "struct.h"
 
 void	stupid_sort(t_op **list_op, t_pile **a, t_pile **b);
 
