@@ -6,13 +6,13 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 14:39:13 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/14 11:38:43 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/15 15:06:04 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "ft.h"
-#include "pile.h"
+#include "op.h"
 
 static int	parse_line(t_pile **a, char *str)
 {

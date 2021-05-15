@@ -6,12 +6,12 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:56:38 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/14 22:17:29 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/15 14:35:04 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "struct.h"
-#include "pile.h"
 #include "op.h"
 
 static int	thirst_is_sorted(t_pile *pile)
@@ -32,7 +32,7 @@ int	pile_is_sorted(t_pile *pile)
 	return (1);
 }
 
-static void	p_low(t_pile **a, t_pile **b)
+static void	p_low(t_op **list_op, t_pile **a, t_pile **b)
 {
 	int		low_value;
 	int		i_low_value;
@@ -55,20 +55,29 @@ static void	p_low(t_pile **a, t_pile **b)
 	}
 	while (i_low_value > 0)
 	{
-		ra(a);
+		ra(list_op, a);
 		i_low_value--;
 	}
-	pb(a, b);
+	pb(list_op, a, b);
 }
-
-void	solve(t_pile **a, t_pile **b)
+static void	stupid_sort(t_op **list_op, t_pile **a, t_pile **b)
 {
 	if (!pile_is_sorted(*a))
 	{
 		while (*a)
-			p_low(a, b);
+			p_low(list_op, a, b);
 		while (*b)
-			pa (a, b);
+			pa (list_op, a, b);
 	}
+}
+
+void	solve(t_pile **a, t_pile **b)
+{
+	t_op	*list_op;
+
+	list_op = NULL;
+	stupid_sort(&list_op, a, b);
+	op_write(list_op);
+	op_clear(&list_op);
 	pile_write(*a, *b);
 }

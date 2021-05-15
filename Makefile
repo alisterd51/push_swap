@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/05/14 23:13:51 by anclarma         ###   ########.fr        #
+#    Updated: 2021/05/15 16:23:38 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,10 @@ SRCS1		= swap.c			\
 			  solve.c			\
 			  ft_is.c			\
 			  ft_atoi.c			\
-			  ft_secure_atoi.c
+			  ft_secure_atoi.c	\
+			  ft_strcpy.c		\
+			  ft_strlen.c		\
+			  op.c
 SRCS2		= checker.c			\
 			  swap.c			\
 			  push.c			\
@@ -37,7 +40,9 @@ SRCS2		= checker.c			\
 			  get_next_line.c	\
 			  ft_strdup.c		\
 			  ft_strjoin.c		\
-			  ft_strlen.c
+			  ft_strcpy.c		\
+			  ft_strlen.c		\
+			  op.c
 OBJS1		= $(SRCS1:.c=.o)
 OBJS2		= $(SRCS2:.c=.o)
 CC			= gcc

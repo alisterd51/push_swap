@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pile.h                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 16:38:01 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/12 21:03:11 by anclarma         ###   ########.fr       */
+/*   Created: 2021/05/15 15:50:29 by anclarma          #+#    #+#             */
+/*   Updated: 2021/05/15 16:13:41 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PILE_H
-# define PILE_H
+char	*ft_strcpy(char *dest, const char *src)
+{
+	int	i;
 
-# include "struct.h"
-
-/*
-** pile.c
-*/
-int		pile_push_back(t_pile **pile_ptr, int value);
-void	pile_clear(t_pile **pile_ptr);
-void	pile_write(t_pile *a, t_pile *b);
-
-#endif
+	i = -1;
+	while (src[++i])
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
+}

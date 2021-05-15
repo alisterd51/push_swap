@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:13:34 by user42            #+#    #+#             */
-/*   Updated: 2021/05/12 13:46:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/05/15 12:17:59 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ struct	s_pile
 {
 	int		value;
 	t_pile	*next;
+};
+
+typedef struct s_op		t_op;
+struct	s_op
+{
+	char	op[4];
+	t_op	*next;
 };
 
 #endif

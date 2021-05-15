@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:07:40 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/13 15:41:13 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/15 15:03:57 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "struct.h"
 #include "push_swap.h"
-#include "pile.h"
+#include "op.h"
 
 int	main(int ac, char **av)
 {

@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 15:34:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/12 21:22:38 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/15 16:25:42 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ static void	r(t_pile **pile_ptr)
 	ptr2->next = ptr1;
 }
 
-void	ra(t_pile **a)
+void	ra(t_op **list_op, t_pile **a)
 {
-	write(1, "ra\n", 3);
+	op_push_back(list_op, "ra\n");
 	r(a);
 }
 
-void	rb(t_pile **b)
+void	rb(t_op **list_op, t_pile **b)
 {
-	write(1, "rb\n", 3);
+	op_push_back(list_op, "rb\n");
 	r(b);
 }
 
-void	rr(t_pile **a, t_pile **b)
+void	rr(t_op **list_op, t_pile **a, t_pile **b)
 {
-	write(1, "rr\n", 3);
+	op_push_back(list_op, "rr\n");
 	r(a);
 	r(b);
 }
