@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:43:04 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/15 15:46:46 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/16 15:37:51 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ char	*ft_strjoin(char const *s1, char const *s2);
 ** ft_strlen.c
 */
 size_t	ft_strlen(const char *s);
+
+/*
+** ft_strcmp.c
+*/
+int		ft_strcmp(const char *s1, const char *s2);
 
 /*
 ** ft_strcpy.c

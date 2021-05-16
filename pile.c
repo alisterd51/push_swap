@@ -6,12 +6,11 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:47:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/15 18:10:08 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/16 13:32:47 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "struct.h"
 
 int	pile_len(t_pile *pile)
@@ -25,6 +24,13 @@ int	pile_len(t_pile *pile)
 		pile = pile->next;
 	}
 	return (ret);
+}
+
+int	pile_elem_value(t_pile *pile, int i)
+{
+	while (i-- > 0)
+		pile = pile->next;
+	return (pile->value);
 }
 
 int	pile_push_back(t_pile **pile_ptr, int value)
@@ -66,26 +72,4 @@ void	pile_clear(t_pile **pile_ptr)
 		free(ptr2);
 	}
 	*pile_ptr = NULL;
-}
-
-void	pile_write(t_pile *a, t_pile *b)
-{
-	while (a || b)
-	{
-		if (a)
-		{
-			printf("%d ", a->value);
-			a = a->next;
-		}
-		else
-			printf("  ");
-		if (b)
-		{
-			printf("%d\n", b->value);
-			b = b->next;
-		}
-		else
-			printf(" \n");
-	}
-	printf("\n");
 }

@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 17:12:47 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/15 18:08:44 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/16 14:45:24 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,5 @@ void	stupid_sort(t_op **list_op, t_pile **a, t_pile **b)
 		while (*b)
 			pa (list_op, a, b);
 	}
+	op_optimizer(list_op);
 }

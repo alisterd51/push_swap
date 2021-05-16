@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/05/15 21:24:09 by anclarma         ###   ########.fr        #
+#    Updated: 2021/05/16 14:30:50 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,11 @@ SRCS1		= swap.c			\
 			  ft_secure_atoi.c	\
 			  ft_strcpy.c		\
 			  ft_strlen.c		\
+			  ft_strcmp.c		\
 			  op.c				\
 			  is_sorted.c		\
-			  stupid_sort.c
+			  stupid_sort.c		\
+			  op_optimizer.c
 SRCS2		= checker.c			\
 			  swap.c			\
 			  push.c			\

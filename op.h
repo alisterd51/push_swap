@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:47:05 by user42            #+#    #+#             */
-/*   Updated: 2021/05/15 17:49:45 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/16 15:39:48 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,20 @@
 ** pile.c
 */
 int		pile_len(t_pile *pile);
+int		pile_elem_value(t_pile *pile, int i);
 int		pile_push_back(t_pile **pile_ptr, int value);
 void	pile_clear(t_pile **pile_ptr);
-void	pile_write(t_pile *a, t_pile *b);
+
+/*
+** op_optimizer.c
+*/
+void	op_optimizer(t_op **list_op);
 
 /*
 ** op.c
 */
 int		op_push_back(t_op **op_ptr, char *str);
+void	op_clear_one_elem(t_op **op_ptr, int i);
 void	op_clear(t_op **op_ptr);
 void	op_write(t_op *op_ptr);
 

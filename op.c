@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:47:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/15 16:27:07 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/16 15:04:05 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,28 @@ int	op_push_back(t_op **op_ptr, char *str)
 		ptr->next->next = NULL;
 	}
 	return (0);
+}
+
+void	op_clear_one_elem(t_op **op_ptr, int i)
+{
+	t_op	*ptr1;
+	t_op	*ptr2;
+
+	ptr1 = *op_ptr;
+	if (i == 0)
+	{
+		*op_ptr = ptr1->next;
+		free(ptr1);
+		return ;
+	}
+	ptr2 = ptr1->next;
+	while (--i > 0)
+	{
+		ptr1 = ptr2;
+		ptr2 = ptr2->next;
+	}
+	ptr1->next = ptr2->next;
+	free(ptr2);
 }
 
 void	op_clear(t_op **op_ptr)

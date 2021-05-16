@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 13:13:34 by user42            #+#    #+#             */
-/*   Updated: 2021/05/16 16:36:22 by anclarma         ###   ########.fr       */
+/*   Created: 2020/08/15 21:42:54 by anclarma          #+#    #+#             */
+/*   Updated: 2021/03/08 13:04:28 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
-
-typedef struct s_pile	t_pile;
-struct	s_pile
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int		value;
-	t_pile	*next;
-};
+	int	i;
 
-typedef struct s_op		t_op;
-struct	s_op
-{
-	char	op[5];
-	t_op	*next;
-};
-
-#endif
+	i = 0;
+	while ((unsigned char)s1[i] == (unsigned char)s2[i] && s1[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
