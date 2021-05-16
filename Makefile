@@ -6,13 +6,13 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/05/16 14:30:50 by anclarma         ###   ########.fr        #
+#    Updated: 2021/05/16 17:30:49 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME1		= push_swap
 NAME2		= checker
-SRCS1		= swap.c			\
+C_FILES1	= swap.c			\
 			  push.c			\
 			  rotate.c			\
 			  rrotate.c			\
@@ -30,7 +30,7 @@ SRCS1		= swap.c			\
 			  is_sorted.c		\
 			  stupid_sort.c		\
 			  op_optimizer.c
-SRCS2		= checker.c			\
+C_FILES2	= checker.c			\
 			  swap.c			\
 			  push.c			\
 			  rotate.c			\
@@ -47,13 +47,16 @@ SRCS2		= checker.c			\
 			  ft_strlen.c		\
 			  is_sorted.c		\
 			  op.c
+SRCS1		= $(addprefix srcs/,$(C_FILES1))
+SRCS2		= $(addprefix srcs/,$(C_FILES2))
 OBJS1		= $(SRCS1:.c=.o)
 OBJS2		= $(SRCS2:.c=.o)
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g3
+CFLAGS		= -Wall -Wextra -Werror -g3	\
+			  -I ./includes
 
 .c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+			$(CC) $(CFLAGS) $(CINCLUDES) -c $< -o $(<:.c=.o)
 
 all:		$(NAME1)
 
