@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:47:05 by user42            #+#    #+#             */
-/*   Updated: 2021/05/16 15:39:48 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/17 16:07:36 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	op_optimizer(t_op **list_op);
 /*
 ** op.c
 */
+int		op_len(t_op *op);
 int		op_push_back(t_op **op_ptr, char *str);
 void	op_clear_one_elem(t_op **op_ptr, int i);
 void	op_clear(t_op **op_ptr);

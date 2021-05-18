@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:47:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/16 15:04:05 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/17 16:07:02 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 #include <stdlib.h>
 #include "struct.h"
 #include "ft.h"
+
+int	op_len(t_op *op)
+{
+	int	ret;
+
+	ret = 0;
+	while (op)
+	{
+		ret++;
+		op = op->next;
+	}
+	return (ret);
+}
 
 int	op_push_back(t_op **op_ptr, char *str)
 {
