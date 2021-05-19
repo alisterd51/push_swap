@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:22:03 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/16 17:00:54 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/19 14:34:35 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,11 @@ static int	check_ri_rri_pp(t_op **list_op, t_op *op1, t_op *op2, int i)
 		|| (!ft_strcmp(op1->op, "rr\n") && !ft_strcmp(op2->op, "rrr\n"))
 		|| (!ft_strcmp(op1->op, "rra\n") && !ft_strcmp(op2->op, "ra\n"))
 		|| (!ft_strcmp(op1->op, "rrb\n") && !ft_strcmp(op2->op, "rb\n"))
-		|| (!ft_strcmp(op1->op, "rrr\n") && !ft_strcmp(op2->op, "rr\n")))
-	{
-		op_clear_one_elem(list_op, i);
-		op_clear_one_elem(list_op, i);
-		return (1);
-	}
-	if ((!ft_strcmp(op1->op, "pa\n") && !ft_strcmp(op2->op, "pb\n"))
-		|| (!ft_strcmp(op1->op, "pb\n") && !ft_strcmp(op2->op, "pa\n")))
+		|| (!ft_strcmp(op1->op, "rrr\n") && !ft_strcmp(op2->op, "rr\n"))
+		|| (!ft_strcmp(op1->op, "pa\n") && !ft_strcmp(op2->op, "pb\n"))
+		|| (!ft_strcmp(op1->op, "pb\n") && !ft_strcmp(op2->op, "pa\n"))
+		|| (!ft_strcmp(op1->op, "sa\n") && !ft_strcmp(op2->op, "sa\n"))
+		|| (!ft_strcmp(op1->op, "sb\n") && !ft_strcmp(op2->op, "sb\n")))
 	{
 		op_clear_one_elem(list_op, i);
 		op_clear_one_elem(list_op, i);
