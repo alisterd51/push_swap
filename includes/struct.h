@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:13:34 by user42            #+#    #+#             */
-/*   Updated: 2021/05/16 16:36:22 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/19 18:25:55 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ typedef struct s_pile	t_pile;
 struct	s_pile
 {
 	int		value;
+	int		index;
 	t_pile	*next;
 };
 

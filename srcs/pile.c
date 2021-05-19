@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:47:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/19 10:31:28 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/19 18:45:22 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	pile_push_back(t_pile **pile_ptr, int value)
 		if (!*pile_ptr)
 			return (1);
 		(*pile_ptr)->value = value;
+		(*pile_ptr)->index = -1;
 		(*pile_ptr)->next = NULL;
 	}
 	else

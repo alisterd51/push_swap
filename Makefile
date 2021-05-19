@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/05/19 15:45:23 by anclarma         ###   ########.fr        #
+#    Updated: 2021/05/19 19:31:38 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ C_FILES1	= swap.c			\
 			  stupid_sort.c		\
 			  op_optimizer.c	\
 			  one_pile_sort.c	\
-			  entropy.c
+			  entropy.c			\
+			  pre_sort.c		\
+			  opti_sort.c
 C_FILES2	= checker.c			\
 			  swap.c			\
 			  push.c			\
@@ -54,7 +56,7 @@ SRCS2		= $(addprefix srcs/,$(C_FILES2))
 OBJS1		= $(SRCS1:.c=.o)
 OBJS2		= $(SRCS2:.c=.o)
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g3	\
+CFLAGS		= -Wall -Wextra -Werror -g3	-fsanitize=address\
 			  -I ./includes
 
 .c.o:
