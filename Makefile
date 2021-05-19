@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/05/16 17:30:49 by anclarma         ###   ########.fr        #
+#    Updated: 2021/05/19 14:04:17 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,9 @@ C_FILES1	= swap.c			\
 			  op.c				\
 			  is_sorted.c		\
 			  stupid_sort.c		\
-			  op_optimizer.c
+			  op_optimizer.c	\
+			  one_pile_sort.c	\
+			  entropy.c
 C_FILES2	= checker.c			\
 			  swap.c			\
 			  push.c			\

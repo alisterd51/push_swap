@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:34:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/15 17:25:20 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/19 14:01:41 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ void	solve(t_pile **a, t_pile **b);
 /*
 ** is_sorted.c
 */
+int		thirst_is_sorted(t_pile *pile);
 int		pile_is_sorted(t_pile *pile);
+
+/*
+** entropy.c
+*/
+int		entropy(t_pile *pile);
 
 #endif

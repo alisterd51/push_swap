@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:56:38 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/15 17:51:56 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/19 14:06:34 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,21 @@
 
 void	solve(t_pile **a, t_pile **b)
 {
-	t_op	*list_op;
+	t_op	*list_op[2];
+	t_pile	*cpy_a[2];
 
-	list_op = NULL;
-	stupid_sort(&list_op, a, b);
-	op_write(list_op);
-	op_clear(&list_op);
+	list_op[0] = NULL;
+	list_op[1] = NULL;
+	cpy_a[0] = piledup(*a);
+	cpy_a[1] = piledup(*a);
+	stupid_sort(&(list_op[0]), &(cpy_a[0]), b);
+	one_pile_sort(&(list_op[1]), &(cpy_a[1]));
+	if (op_len(list_op[0]) <= op_len(list_op[1]))
+		op_write(list_op[0]);
+	else
+		op_write(list_op[1]);
+	op_clear(&(list_op[0]));
+	op_clear(&(list_op[1]));
+	pile_clear(&(cpy_a[0]));
+	pile_clear(&(cpy_a[1]));
 }
