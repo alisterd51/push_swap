@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:34:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/19 15:24:48 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/20 12:04:36 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ void	solve(t_pile **a, t_pile **b);
 */
 int		thirst_is_sorted(t_pile *pile);
 int		pile_is_sorted(t_pile *pile);
+int		thirst_is_isorted(t_pile *pile);
+int		pile_is_isorted(t_pile *pile);
 
 #endif
