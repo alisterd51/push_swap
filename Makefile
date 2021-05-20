@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:07:16 by anclarma          #+#    #+#              #
-#    Updated: 2021/05/19 19:31:38 by anclarma         ###   ########.fr        #
+#    Updated: 2021/05/21 00:11:09 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,8 @@ SRCS1		= $(addprefix srcs/,$(C_FILES1))
 SRCS2		= $(addprefix srcs/,$(C_FILES2))
 OBJS1		= $(SRCS1:.c=.o)
 OBJS2		= $(SRCS2:.c=.o)
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g3	-fsanitize=address\
+CC			= clang
+CFLAGS		= -Wall -Wextra -Werror -O3\
 			  -I ./includes
 
 .c.o:

@@ -6,17 +6,15 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 18:09:07 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/20 13:41:14 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/21 00:25:37 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include "struct.h"
 #include "push_swap.h"
 #include "op.h"
 #include "sort.h"
-
-#include <unistd.h>
-#include <stdio.h>
 
 static int	groupe_present(t_pile *a, int max_index)
 {
@@ -62,19 +60,55 @@ static int	search_up(t_pile *pile, int max_index)
 	}
 	return (i);
 }
+/*
+static int	search_max_low(t_pile *pile)
+{
+	int	i;
+	int	max_value;
+	int	i_max_value;
+	int	len;
 
+	i = 0;
+	max_value = INT_MAX;
+	i_max_value = 0;
+	len = pile_len(pile);
+	while (pile)
+	{
+		if (pile->value > max_value)
+		{
+			max_value = pile->value;
+			i_max_value = i;
+		}
+		i++;
+		pile = pile->next;
+	}
+	return (len - i_max_value);
+}
+
+static int	search_max_up(t_pile *pile)
+{
+	int	i;
+	int	max_value;
+	int	i_max_value;
+
+	i = 0;
+	max_value = INT_MAX;
+	i_max_value = 0;
+	while (pile)
+	{
+		if (pile->value > max_value)
+		{
+			max_value = pile->value;
+			i_max_value = i;
+		}
+		i++;
+		pile = pile->next;
+	}
+	return (i_max_value);
+}
+*/
 static int	is_min_of_pile(int index, t_pile *pile)
 {
-	printf("%d,", index);
-	t_pile	*ptr;
-
-	ptr = pile;
-	while (ptr)
-	{
-		printf(" %d", ptr->index);
-		ptr = ptr->next;
-	}
-	printf("\n");
 	while (pile)
 	{
 		if (pile->index < index)
@@ -95,7 +129,7 @@ static int	is_max_of_pile(int index, t_pile *pile)
 	return (1);
 }
 
-static int	test_b_placement(int index, t_pile *pile)//boucle inf
+static int	test_b_placement(int index, t_pile *pile)
 {
 	if (pile->index > index)
 		return (0);
@@ -106,64 +140,130 @@ static int	test_b_placement(int index, t_pile *pile)//boucle inf
 	return (1);
 }
 
+static int	search_up_b_placement(t_op **list_op, t_pile **a, t_pile **b)
+{
+	int	i;
+	int	i_opti;
+
+	i = 0;
+	while (!test_b_placement((*a)->index, *b))
+	{
+		rb(list_op, b);
+		i++;
+	}
+	i_opti = i;
+	while (i > 0)
+	{
+		rrb(list_op, b);
+		i--;
+	}
+	while (!test_b_placement((*a)->index, *b))
+	{
+		rrb(list_op, b);
+		i++;
+	}
+	if (i < i_opti)
+		i_opti = -i;
+	while (i > 0)
+	{
+		rb(list_op, b);
+		i--;
+	}
+	return (i_opti);
+}
+
+static int	search_up_b_placement_bis(t_op **list_op, t_pile **b)
+{
+	int	i;
+	int	i_opti;
+
+	i = 0;
+	while (!is_max_of_pile((*b)->index, *b))
+	{
+		rb(list_op, b);
+		i++;
+	}
+	i_opti = i;
+	while (i > 0)
+	{
+		rrb(list_op, b);
+		i--;
+	}
+	while (!is_max_of_pile((*b)->index, *b))
+	{
+		rrb(list_op, b);
+		i++;
+	}
+	if (i < i_opti)
+		i_opti = -i;
+	while (i > 0)
+	{
+		rb(list_op, b);
+		i--;
+	}
+	return (i_opti);
+}
+
 static void	opti_a_to_b(t_op **list_op, t_pile **a, t_pile **b)
 {
-	t_pile	*ptr_b;
+/*	int	i_low;
+	int	i_up;*/
 
-	ptr_b = *b;
-	while (ptr_b)
-	{
-//		printf("%d\n", ptr_b->value);
-		ptr_b = ptr_b->next;
-	}
-//	printf("\n");
 	if (!*b || !(*b)->next)
 	{
 		pb(list_op, a, b);
 		return ;
 	}
-	//il faut que le pos0 soit inf a *a (ou si *a est le min que pos0 soit le plus grand )
-	//test
-	if (is_min_of_pile((*a)->index, *b))
+	if (is_min_of_pile((*a)->index, *b)
+		|| is_max_of_pile((*a)->index, *b))
 	{
-//		printf("a\n");
-		while (!is_max_of_pile((*b)->index, *b))
+/*		i_low = search_max_low(*b);
+		i_up = search_max_up(*b);
+		if (i_low < i_up)
+			while (i_low-- > 0)
+				rrb(list_op, b);
+		else
+			while (i_up-- > 0)
+				rb(list_op, b);*/
+		int i = search_up_b_placement_bis(list_op, b);
+		while (i > 0)
+		{
 			rb(list_op, b);
-	}
-	else if (is_max_of_pile((*a)->index, *b))
-	{
-//		printf("b\n");
-		while (!is_max_of_pile((*b)->index, *b))
-			rb(list_op, b);
+			i--;
+		}
+		while (i < 0)
+		{
+			rrb(list_op, b);
+			i++;
+		}
+//		while (!is_max_of_pile((*b)->index, *b))
+//			rb(list_op, b);
 	}
 	else
-	{
-//		printf("c\n");
 		while (!test_b_placement((*a)->index, *b))
-			rb(list_op, b);
-	}
-	//ftest
+		{
+			int i = search_up_b_placement(list_op, a, b);
+			while (i > 0)
+			{
+				rb(list_op, b);
+				i--;
+			}
+			while (i < 0)
+			{
+				rrb(list_op, b);
+				i++;
+			}
+//			rb(list_op, b);
+		}
 	pb(list_op, a, b);
-	//pas opti
 }
 
 static void	opti_b_to_a(t_op **list_op, t_pile **a, t_pile **b)
 {
-//	printf("test1\n");
-	t_pile	*ptr_b;
-
-	ptr_b = *b;
-	while (ptr_b)
-	{
-//		printf("%d\n", ptr_b->value);
-		ptr_b = ptr_b->next;
-	}
 	while (!pile_is_isorted(*b))
 		rb(list_op, b);
-//	printf("test2\n");
 	while (*b)
 		pa(list_op, a, b);
-//	printf("test3\n");
 }
 
 static void	test(t_op **list_op, t_pile **a, t_pile **b, int n)
@@ -197,7 +297,7 @@ void	opti_sort(t_op **list_op, t_pile **a, t_pile **b)
 	pre_sort(a);
 	if (!pile_is_sorted(*a) && !*b)
 	{
-		test(list_op, a, b, 10);
+		test(list_op, a, b, pile_len(*a) / 10 + 1);
 	}
 	op_optimizer(list_op);
 }
