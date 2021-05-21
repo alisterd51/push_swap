@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 22:10:05 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/19 12:30:36 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/21 11:23:17 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,6 @@
 #include "struct.h"
 #include "push_swap.h"
 #include "op.h"
-
-static int	largest_value_index(t_pile *a)
-{
-	int	i;
-	int	i_largest;
-	int	max_value;
-
-	i = 0;
-	i_largest = 0;
-	max_value = INT_MIN;
-	while (a)
-	{
-		if (a->value > max_value)
-		{
-			max_value = a->value;
-			i_largest = i;
-		}
-		i++;
-		a = a->next;
-	}
-	return (i_largest);
-}
 
 static int	largest_unsort_index(t_pile *pile)
 {
@@ -113,17 +91,14 @@ static void	minimal_sort_max_value(t_op **list_op, t_pile **a, int i)
 			ra(list_op, a);
 }
 
-static void	shorter_sort(t_op **list_op, t_pile **a)
-{
-	if (largest_value_index(*a) != pile_len(*a) - 1)
-		minimal_sort_max_value(list_op, a, largest_value_index(*a));
-	else
-		sort_max_value(list_op, a, largest_unsort_index(*a));
-}
-
 void	one_pile_sort(t_op **list_op, t_pile **a)
 {
 	while (!pile_is_sorted(*a))
-		shorter_sort(list_op, a);
+	{
+		if (index_of_max(*a) != pile_len(*a) - 1)
+			minimal_sort_max_value(list_op, a, index_of_max(*a));
+		else
+			sort_max_value(list_op, a, largest_unsort_index(*a));
+	}
 	op_optimizer(list_op);
 }

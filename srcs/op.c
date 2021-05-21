@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:47:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/17 16:07:02 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/21 17:42:52 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	op_clear_one_elem(t_op **op_ptr, int i)
 	t_op	*ptr1;
 	t_op	*ptr2;
 
+	if (!*op_ptr)
+		return ;
 	ptr1 = *op_ptr;
 	if (i == 0)
 	{

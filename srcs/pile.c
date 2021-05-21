@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 16:47:15 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/20 15:56:56 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/21 17:43:16 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	pile_clear(t_pile **pile_ptr)
 	t_pile	*ptr1;
 	t_pile	*ptr2;
 
+	if (!*pile_ptr)
+		return ;
 	ptr1 = *pile_ptr;
 	while (ptr1)
 	{
