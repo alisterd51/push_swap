@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:47:05 by user42            #+#    #+#             */
-/*   Updated: 2021/05/21 15:10:18 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/21 18:49:58 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ int		index_of_middle(int value, t_pile *pile);
 int		value_of_end(t_pile *pile);
 int		value_of_max(t_pile *pile);
 int		value_of_min(t_pile *pile);
+
+/*
+** search_in_pile.c
+*/
+int		search_low(t_pile *pile, int max_index);
+int		search_up(t_pile *pile, int max_index);
+int		search_middle(t_pile **a, t_pile **b);
+int		search_max(t_pile **b);
 
 /*
 ** op_optimizer.c

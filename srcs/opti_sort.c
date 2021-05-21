@@ -6,11 +6,10 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 18:09:07 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/21 17:14:06 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/21 18:56:16 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include "struct.h"
 #include "push_swap.h"
 #include "op.h"
@@ -27,80 +26,9 @@ static int	groupe_present(t_pile *a, int max_index)
 	return (0);
 }
 
-static int	search_low(t_pile *pile, int max_index)
-{
-	int	i;
-	int	i_low;
-	int	len;
-
-	i = 0;
-	i_low = 0;
-	len = pile_len(pile);
-	while (pile)
-	{
-		if (pile->index < max_index)
-			i_low = i;
-		i++;
-		pile = pile->next;
-	}
-	return (len - i_low);
-}
-
-static int	search_up(t_pile *pile, int max_index)
-{
-	int	i;
-
-	i = 0;
-	while (pile)
-	{
-		if (pile->index < max_index)
-			return (i);
-		i++;
-		pile = pile->next;
-	}
-	return (i);
-}
-
-static int	test_b_placement(int index, t_pile *pile)
-{
-	if (pile->index > index)
-		return (0);
-	while (pile->next)
-		pile = pile->next;
-	if (pile->index < index)
-		return (0);
-	return (1);
-}
-
-static int	search_up_b_placement(t_pile **a, t_pile **b)
-{
-	int	i;
-	int	len;
-
-	i = index_of_middle((*a)->value, *b);
-	len = pile_len(*b);
-	if (i < len / 2)
-		return (i);
-	else
-		return (-(len - i));
-}
-
-static int	search_up_b_placement_bis(t_pile **b)
-{
-	int	i;
-	int	len;
-
-	i = index_of_max(*b);
-	len = pile_len(*b);
-	if (i < len / 2)
-		return (i);
-	else
-		return (-(len - i));
-}
-
 static void	opti_a_to_b(t_op **list_op, t_pile **a, t_pile **b)
 {
-	int i;
+	int	i;
 
 	if (!*b || !(*b)->next)
 	{
@@ -108,64 +36,24 @@ static void	opti_a_to_b(t_op **list_op, t_pile **a, t_pile **b)
 		return ;
 	}
 	if ((*a)->value < value_of_min(*b)
-			|| (*a)->value > value_of_max(*b))
-	{
-		i = search_up_b_placement_bis(b);
-		while (i > 0)
-		{
-			rb(list_op, b);
-			i--;
-		}
-		while (i < 0)
-		{
-			rrb(list_op, b);
-			i++;
-		}
-	}
+		|| (*a)->value > value_of_max(*b))
+		i = search_max(b);
 	else
-		while (!test_b_placement((*a)->index, *b))
-		{
-			i = search_up_b_placement(a, b);
-			while (i > 0)
-			{
-				rb(list_op, b);
-				i--;
-			}
-			while (i < 0)
-			{
-				rrb(list_op, b);
-				i++;
-			}
-		}
+		i = search_middle(a, b);
+	if (i > 0)
+		while (i-- > 0)
+			rb(list_op, b);
+	else
+		while (i++ < 0)
+			rrb(list_op, b);
 	pb(list_op, a, b);
-}
-
-static int  largest_value_index(t_pile *a)
-{
-	int i;
-	int i_largest;
-	int max_value;
-
-	i = 0;
-	i_largest = 0;
-	max_value = INT_MIN;
-	while (a)
-	{
-		if (a->value > max_value)
-		{
-			max_value = a->value;
-			i_largest = i;
-		}
-		i++;
-		a = a->next;
-	}
-	return (i_largest);
 }
 
 static void	opti_b_to_a(t_op **list_op, t_pile **a, t_pile **b)
 {
-	int	i = largest_value_index(*b);
+	int	i;
 
+	i = index_of_max(*b);
 	if (i < pile_len(*b) / 2)
 		while (!pile_is_isorted(*b))
 			rb(list_op, b);
