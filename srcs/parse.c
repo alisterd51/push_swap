@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 14:39:13 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/21 21:29:34 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/21 22:13:45 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,24 @@ static int	parse_arg(t_pile **a, char *str)
 	return (0);
 }
 
+static int	duplicate(t_pile *pile)
+{
+	t_pile	*ptr;
+
+	while (pile)
+	{
+		ptr = pile->next;
+		while (ptr)
+		{
+			if (pile->value == ptr->value)
+				return (1);
+			ptr = ptr->next;
+		}
+		pile = pile->next;
+	}
+	return (0);
+}
+
 int	parse(t_pile **a, int ac, char **av)
 {
 	int	i;
@@ -44,5 +62,5 @@ int	parse(t_pile **a, int ac, char **av)
 	while (i < ac)
 		if (parse_arg(a, av[i++]))
 			return (1);
-	return (0);
+	return (duplicate(*a));
 }

@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 20:47:07 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/15 16:22:47 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/21 22:09:47 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "ft.h"
 #include "op.h"
 
-static void	op_2(t_op **list_op, char *line, t_pile **a, t_pile **b)
+static int	op_2(t_op **list_op, char *line, t_pile **a, t_pile **b)
 {
 	if (line[0] == 's' && line[1] == 'a')
 		sa(list_op, a);
@@ -35,9 +35,12 @@ static void	op_2(t_op **list_op, char *line, t_pile **a, t_pile **b)
 		rb(list_op, b);
 	else if (line[0] == 'r' && line[1] == 'r')
 		rr(list_op, a, b);
+	else
+		return (1);
+	return (0);
 }
 
-static void	op_3(t_op **list_op, char *line, t_pile **a, t_pile **b)
+static int	op_3(t_op **list_op, char *line, t_pile **a, t_pile **b)
 {
 	if (line[0] == 'r' && line[1] == 'r' && line[2] == 'a')
 		rra(list_op, a);
@@ -45,9 +48,12 @@ static void	op_3(t_op **list_op, char *line, t_pile **a, t_pile **b)
 		rrb(list_op, b);
 	else if (line[0] == 'r' && line[1] == 'r' && line[2] == 'r')
 		rrr(list_op, a, b);
+	else
+		return (1);
+	return (0);
 }
 
-static void	apply_op(t_op **list_op, char *line, t_pile **a, t_pile **b)
+static int	apply_op(t_op **list_op, char *line, t_pile **a, t_pile **b)
 {
 	int	len;
 
@@ -57,26 +63,30 @@ static void	apply_op(t_op **list_op, char *line, t_pile **a, t_pile **b)
 	else if (len == 3)
 		return (op_3(list_op, line, a, b));
 	else
-		return ;
+		return (1);
 }
 
-static void	apply_input(t_pile **a, t_pile **b)
+static int	apply_input(t_pile **a, t_pile **b)
 {
 	char	*line;
 	t_op	*list_op;
+	int		error;
 
 	line = NULL;
 	list_op = NULL;
 	while (get_next_line(0, &line) > 0)
 	{
-		apply_op(&list_op, line, a, b);
+		error = apply_op(&list_op, line, a, b);
 		free(line);
+		if (error)
+			return (1);
 	}
 	if (!*b && pile_is_sorted(*a))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
 	op_clear(&list_op);
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -87,14 +97,14 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1)
-		return (1);
-	if (parse(&a, ac - 1, av + 1))
+		return (0);
+	if (parse(&a, ac - 1, av + 1) || apply_input(&a, &b))
 	{
 		write(2, "Error\n", 6);
 		pile_clear(&a);
-		return (2);
+		pile_clear(&b);
+		return (1);
 	}
-	apply_input(&a, &b);
 	pile_clear(&a);
 	pile_clear(&b);
 	return (0);
