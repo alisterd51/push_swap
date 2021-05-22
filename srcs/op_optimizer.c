@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:22:03 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/19 14:34:35 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/05/22 12:17:41 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,54 @@
 #include "ft.h"
 #include "op.h"
 
-static int	check_rr_rrr(t_op **list_op, t_op *op1, t_op *op2, int i)
+static int	check_rra_rb_ra(t_op **list_op, t_op *op1, t_op *op2, int i)
+{
+	if ((!ft_strcmp(op1->op, "rb\n") && !ft_strcmp(op2->op, "rrr\n"))
+		|| (!ft_strcmp(op1->op, "rrr\n") && !ft_strcmp(op2->op, "rb\n")))
+	{
+		op_clear_one_elem(list_op, i);
+		ft_strcpy(op2->op, "rra\n");
+	}
+	else if ((!ft_strcmp(op1->op, "rra\n") && !ft_strcmp(op2->op, "rr\n"))
+		|| (!ft_strcmp(op1->op, "rr\n") && !ft_strcmp(op2->op, "rra\n")))
+	{
+		op_clear_one_elem(list_op, i);
+		ft_strcpy(op2->op, "rb\n");
+	}
+	else if ((!ft_strcmp(op1->op, "rrb\n") && !ft_strcmp(op2->op, "rr\n"))
+		|| (!ft_strcmp(op1->op, "rr\n") && !ft_strcmp(op2->op, "rrb\n")))
+	{
+		op_clear_one_elem(list_op, i);
+		ft_strcpy(op2->op, "ra\n");
+	}
+	else
+		return (0);
+	return (1);
+}
+
+static int	check_rr_rrr_rb(t_op **list_op, t_op *op1, t_op *op2, int i)
 {
 	if ((!ft_strcmp(op1->op, "ra\n") && !ft_strcmp(op2->op, "rb\n"))
 		|| (!ft_strcmp(op1->op, "rb\n") && !ft_strcmp(op2->op, "ra\n")))
 	{
 		op_clear_one_elem(list_op, i);
 		ft_strcpy(op2->op, "rr\n");
-		return (1);
 	}
-	if ((!ft_strcmp(op1->op, "rra\n") && !ft_strcmp(op2->op, "rrb\n"))
+	else if ((!ft_strcmp(op1->op, "rra\n") && !ft_strcmp(op2->op, "rrb\n"))
 		|| (!ft_strcmp(op1->op, "rrb\n") && !ft_strcmp(op2->op, "rra\n")))
 	{
 		op_clear_one_elem(list_op, i);
 		ft_strcpy(op2->op, "rrr\n");
-		return (1);
 	}
-	return (0);
+	else if ((!ft_strcmp(op1->op, "ra\n") && !ft_strcmp(op2->op, "rrr\n"))
+		|| (!ft_strcmp(op1->op, "rrr\n") && !ft_strcmp(op2->op, "ra\n")))
+	{
+		op_clear_one_elem(list_op, i);
+		ft_strcpy(op2->op, "rrb\n");
+	}
+	else
+		return (0);
+	return (1);
 }
 
 static int	check_ri_rri_pp(t_op **list_op, t_op *op1, t_op *op2, int i)
@@ -66,7 +97,9 @@ static int	check_pile(t_op **list_op)
 	i = 0;
 	while (op1 && op2)
 	{
-		if (check_rr_rrr(list_op, op1, op2, i))
+		if (check_rra_rb_ra(list_op, op1, op2, i))
+			return (1);
+		if (check_rr_rrr_rb(list_op, op1, op2, i))
 			return (1);
 		if (check_ri_rri_pp(list_op, op1, op2, i))
 			return (1);
