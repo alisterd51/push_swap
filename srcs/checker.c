@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 20:47:07 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/21 22:09:47 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/06/01 19:37:43 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ static int	apply_input(t_pile **a, t_pile **b)
 		if (error)
 			return (1);
 	}
+	if (get_next_line(0, &line) < 0)
+		return (1);
 	if (!*b && pile_is_sorted(*a))
 		write(1, "OK\n", 3);
 	else
