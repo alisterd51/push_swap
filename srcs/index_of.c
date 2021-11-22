@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:14:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/05/21 16:52:26 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/11/22 10:22:29 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	index_of_min(t_pile *pile)
 	return (i_min);
 }
 
-int	index_of_middle(int	value, t_pile *pile)
+int	index_of_middle(int value, t_pile *pile)
 {
 	int	i;
 
