@@ -150,7 +150,7 @@ function gen_numbers() {
 		min=$(($max-($GEN_SIZE-1)))
 	fi
 
-	local nums=($(eval echo {$max..$min}))
+	local nums=($(eval "echo {$max..$min}"))
 
 	if [[ $SHUFFLE != 0 ]]; then
 		nums=($(echo ${nums[*]} | tr ' ' '\n' | shuf | tr '\n' ' '))
