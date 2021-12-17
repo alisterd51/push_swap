@@ -131,8 +131,8 @@ function parse_args() {
 function build_project() {
 	if [[ $REBUILD == 1 || ! -f "$BINARY" || ! -f "$CHECKER" ]]; then
 		printf "Building project..."
-		make -f "$MAKEFILE" all > "$BUILD_LOG" 2>&1
-		if [[ $? -ne 0 ]]; then
+		if ! make -f "$MAKEFILE" all > "$BUILD_LOG" 2>&1
+		then
 			printf "\n         \e[4;5;31mCompilation Error !\e[0m\n    See $BUILD_LOG for more info.\n"
 			exit 2
 		else
@@ -169,8 +169,9 @@ function single_test() {
 	if [[ $DEBUG -eq 1 ]]; then
 		printf "\n [$NUMBERS] "
 	fi
-	local result=$($BINARY $NUMBERS)
-	if [[ $? -ne 0 ]]; then
+	local result
+	if ! result=$($BINARY $NUMBERS)
+	then
 		exit
 	fi
 	local validity=$(echo "$result" | $CHECKER $NUMBERS | grep -io 'OK')
